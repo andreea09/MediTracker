@@ -1,7 +1,70 @@
 package com.example.meditracker;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.meditracker.db_connectors.CallAPI;
+
+import org.json.JSONObject;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        new RequestAsync().execute();
+    }
+
+    public class RequestAsync extends AsyncTask<String, String, String> {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                //GET Request
+                //return RequestHandler.sendGet("https://prodevsblog.com/android_get.php");
+
+                // POST Request
+                JSONObject postDataParams = new JSONObject();
+                postDataParams.put("nume", "bajenaru");
+                postDataParams.put("prenume", "andreea");
+                postDataParams.put("data_nastere", "1997-05-09");
+                postDataParams.put("sex", "1");
+                postDataParams.put("adresa", "Str.IntrareaCazarmii,Ploiesti");
+                postDataParams.put("telefon", "+40723245665");
+                postDataParams.put("email", "andreeab09.05@gmail.com");
+                postDataParams.put("cnp", "2970509295161");
+                postDataParams.put("pozitie", "medic");
+                postDataParams.put("parola", "parolaimposibilia123");
+
+                System.out.println("GOT HERE!");
+
+
+                return CallAPI.sendPost("https://scenic-hydra-241121.appspot.com/create", postDataParams);
+            } catch (Exception e) {
+                return "Exception: " + e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s != null) {
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+            }
+        }
+
+
+    }
+}
+/*
 import android.os.Bundle;
 
+import com.example.meditracker.db_connectors.CallAPI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -34,6 +97,9 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CallAPI api = new CallAPI();
+                api.doInBackground("https://scenic-hydra-241121.appspot.com/create", "nume=drg&prenume=popaul&data_nastere=1998-01-21&sex=0&adresa=Bd.Bucuresti,nr.11,bl.8C,ap.26&telefon=+447491873045&email=dragos21popa@gmail.com&cnp=1980121297653&pozitie=UPU&parola=ceamaibarosanaparola");
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -104,3 +170,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 }
+*/
