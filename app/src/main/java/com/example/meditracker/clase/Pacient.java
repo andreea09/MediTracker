@@ -1,6 +1,6 @@
-package com.example.meditracker;
+package com.example.meditracker.clase;
 
-import com.example.meditracker.tratare.Diagnostic;
+import com.example.meditracker.clase.tratare.Diagnostic;
 
 import java.util.List;
 

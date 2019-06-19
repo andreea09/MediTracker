@@ -1,8 +1,8 @@
-package com.example.meditracker.angajati;
+package com.example.meditracker.clase.angajati;
 
-import com.example.meditracker.Feedback;
-import com.example.meditracker.Pacient;
-import com.example.meditracker.Persoana;
+import com.example.meditracker.clase.Feedback;
+import com.example.meditracker.clase.Pacient;
+import com.example.meditracker.clase.Persoana;
 
 import java.time.LocalDate;
 import java.util.List;

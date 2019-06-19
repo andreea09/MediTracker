@@ -1,4 +1,4 @@
-package com.example.meditracker.angajati;
+package com.example.meditracker.clase.angajati;
 
 public class MedicAsistentUPU extends Angajat {
 }

@@ -1,4 +1,6 @@
-package com.example.meditracker.tratare;
+package com.example.meditracker.clase.tratare;
+
+import com.example.meditracker.clase.tratare.Medicament;
 
 import java.util.List;
 
