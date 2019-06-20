@@ -5,12 +5,16 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.meditracker.R;
+
+import static com.example.meditracker.clase.Constante.PROGRESS_TIME_IN_MILLIS;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -36,6 +40,8 @@ public class StartActivity extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
+    private long totalTime = PROGRESS_TIME_IN_MILLIS;
+    private CountDownTimer timer;
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -109,7 +115,8 @@ public class StartActivity extends AppCompatActivity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        startTimer();
     }
 
     @Override
@@ -163,5 +170,20 @@ public class StartActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    private void startTimer(){
+        timer = new CountDownTimer(totalTime, 10000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                totalTime = millisUntilFinished;
+            }
+
+            @Override
+            public void onFinish() {
+                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                startActivity(intent);
+            }
+        }.start();
     }
 }

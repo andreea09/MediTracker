@@ -2,8 +2,8 @@
     <string name="app_name">MediTracker</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">MediTracker</string>
-    <string name="nav_header_subtitle">support@meditracker.com</string>
+    <string name="nav_header_title">Nume, Prenume</string>
+    <string name="nav_header_subtitle">persoana@spital.ro</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -17,4 +17,11 @@
     <string name="title_activity_start">StartActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">MediTracker</string>
+    <string name="welcome_bineativenit">Bine ati venit!</string>
+    <string name="welcome_angajat">Angajat</string>
+    <string name="welcome_pacient">Pacient</string>
+    <string name="nav_logout">Iesi din cont</string>
+    <string name="nav_feedback">Trimite feedback</string>
+    <string name="nav_pacients">Pacienti</string>
+    <string name="nav_sectie">Sectie</string>
 </resources>
