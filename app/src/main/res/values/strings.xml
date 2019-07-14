@@ -24,4 +24,45 @@
     <string name="nav_feedback">Trimite feedback</string>
     <string name="nav_pacients">Pacienti</string>
     <string name="nav_sectie">Sectie</string>
+    <string name="nav_setari">Setari</string>
+    <string name="nav_profil">Profil</string>
+    <string name="nav_adaugare_angajat">Adaugare angajat</string>
+
+    <string-array name="spn_sex">
+        <item>F</item>
+        <item>M</item>
+        <item>Altele</item>
+    </string-array>
+
+    <string-array name="spn_rol">
+        <item>Medic</item>
+        <item>Asistent</item>
+        <item>UPU</item>
+    </string-array>
+
+    <string-array name="spn_sectie">
+        <item>Internari</item>
+        <item>Analize</item>
+        <item>Cardiologie</item>
+        <item>Chirurgie Generala</item>
+        <item>Dermatologie</item>
+        <item>Endocrionologie</item>
+        <item>Ginecologie</item>
+        <item>Interne</item>
+        <item>Imagistica</item>
+        <item>Infectioase</item>
+        <item>Neurologie</item>
+        <item>Neonatologie</item>
+        <item>Ortopedie</item>
+        <item>Oftalmologie</item>
+        <item>Oncologie</item>
+        <item>Pediatrie</item>
+        <item>Pneumologie</item>
+        <item>Psihiatrie</item>
+        <item>Radiologie</item>
+        <item>Recuperare</item>
+
+
+    </string-array>
+
 </resources>

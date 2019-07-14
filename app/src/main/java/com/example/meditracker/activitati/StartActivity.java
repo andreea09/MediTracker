@@ -31,7 +31,7 @@ public class StartActivity extends AppCompatActivity {
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
      */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 1000;
 
     /**
      * Some older devices needs a small delay between UI widget updates
@@ -173,7 +173,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void startTimer(){
-        timer = new CountDownTimer(totalTime, 10000) {
+        timer = new CountDownTimer(totalTime, 5000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 totalTime = millisUntilFinished;
@@ -181,7 +181,7 @@ public class StartActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivityAdmin.class);
                 startActivity(intent);
             }
         }.start();

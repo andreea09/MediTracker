@@ -1,35 +1,33 @@
 package com.example.meditracker.activitati;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.meditracker.R;
 import com.example.meditracker.db_connectors.CallAPI;
-import org.json.JSONObject;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import android.view.View;
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import androidx.appcompat.widget.Toolbar;
+import org.json.JSONObject;
 
-import android.view.Menu;
-
-public class MainActivity extends AppCompatActivity
+public class MainActivityAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_admin);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        FloatingActionButton fab = findViewById(R.id.fab);
@@ -90,11 +88,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_pacienti) {
-            // Handle the camera action
-        } else if (id == R.id.nav_sectie) {
-
-        } else if (id == R.id.nav_profil) {
+        if (id == R.id.nav_angajat) {
+            Intent intent = new Intent(getApplicationContext(), AdaugareAngajatActivity.class);
+            startActivity(intent);
+        }  else if (id == R.id.nav_profil) {
 
         } else if (id == R.id.nav_feedback) {
 

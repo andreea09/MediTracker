@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activitati.AdaugareAngajatActivity">
+
+    <TextView
+        android:id="@+id/tv_adaugare_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_weight="1"
+        android:text="Adaugare angajat"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <EditText
+        android:id="@+id/et_nume_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Nume"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_prenume_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Prenume"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_dataN_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Data nasterii"
+        android:inputType="date" />
+
+    <Spinner
+        android:id="@+id/sp_sex_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/et_adresa_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Adresa"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_nrTel_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Numar telefon"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_adresaE_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Adresa e-mail"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/et_cnp_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="CNP"
+        android:inputType="number" />
+
+    <Spinner
+        android:id="@+id/sp_pozitie_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Spinner
+        android:id="@+id/sp_sectie_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/et_parola_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Parola cont angajat"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btn_creare_angajat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Creare cont angajat"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"/>
+</LinearLayout>

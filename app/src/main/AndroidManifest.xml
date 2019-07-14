@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitati.AngajatLoginActivity"></activity>
-        <activity android:name=".activitati.PacientLoginActivity" />
-        <activity android:name=".activitati.WelcomeActivity" />
+        <activity android:name=".activitati.AdaugareAngajatActivity"
+             />
+        <activity android:name=".activitati.LoginActivity" />
         <activity
             android:name=".activitati.StartActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_start"
+            android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,10 @@
         </activity>
         <activity
             android:name=".activitati.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activitati.MainActivityAdmin"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
