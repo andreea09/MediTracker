@@ -1,13 +1,13 @@
 package com.example.meditracker.activitati;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.meditracker.R;
-import com.example.meditracker.clase.angajati.Angajat;
+import com.example.meditracker.clase.persoane.Angajat;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -45,19 +45,9 @@ public class MainActivity extends AppCompatActivity
             angajat = (Angajat) getIntent().getSerializableExtra("asistent");
         }
 
-        tvEmail.setText(angajat.getEmail().toString().trim());
-        tvNume.setText(angajat.getNume().toString().trim() + " " + angajat.getPrenume().toString().trim());
+        tvEmail.setText(angajat.getEmail().trim());
+        tvNume.setText(angajat.getNume().trim() + " " + angajat.getPrenume().trim());
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                new RequestAsync().execute();
-//
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -87,12 +77,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -107,15 +94,25 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_pacienti) {
-            // Handle the camera action
+            Intent intent = new Intent(getApplicationContext(), PacientiActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_sectie) {
+            Intent intent = new Intent(getApplicationContext(), StatisticiSectieActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_profil) {
+            Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_feedback) {
+            Intent intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
-
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

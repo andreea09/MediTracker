@@ -15,9 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meditracker.R;
-import com.example.meditracker.clase.Administrator;
+import com.example.meditracker.clase.persoane.Administrator;
 import com.example.meditracker.clase.Constante;
-import com.example.meditracker.clase.angajati.Angajat;
+import com.example.meditracker.clase.persoane.Pacient;
+import com.example.meditracker.clase.persoane.Angajat;
 import com.example.meditracker.db_connectors.CallAPI;
 
 import org.json.JSONArray;
@@ -71,13 +72,16 @@ public class LoginActivity extends AppCompatActivity {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject persoana = jsonArray.getJSONObject(i);
 
-                            if(jsonObject.getString("tip") =="administrator")
-                                Toast.makeText(getApplicationContext(), "Bine ai venit, "+ persoana.getString("utilizator") + " !", Toast.LENGTH_LONG).show();
+                            System.out.println(tip);
+
+                            if(tip.equals("administrator")) {
+                                Toast.makeText(getApplicationContext(), "Bine ai venit, " + persoana.getString("utilizator") + " !", Toast.LENGTH_LONG).show();
+                            }
                                 else Toast.makeText(getApplicationContext(), "Bine ai venit, "+ persoana.getString("nume") + " " +persoana.getString("prenume") + " !", Toast.LENGTH_LONG).show();
 
                             Intent intent = null;
 
-                            switch (jsonObject.getString("tip")) {
+                            switch (tip) {
                                 case "angajat":
                                     Angajat angajat = new Angajat(persoana.getString("nume"), persoana.getString("prenume"),
                                             simpleDateFormat.parse(persoana.getString("data_nastere")),persoana.getInt("sex"), persoana.getString("adresa"), persoana.getString("telefon"),
@@ -102,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                     break;
                                 case "administrator":
-                                    intent = new Intent(getApplicationContext(), MainActivityUPU.class);
+                                    intent = new Intent(getApplicationContext(), MainActivityAdmin.class);
                                     Administrator admin = new Administrator();
                                     admin.setEmail(persoana.getString("email"));
                                     admin.setParola(persoana.getString("parola"));
@@ -111,16 +115,16 @@ public class LoginActivity extends AppCompatActivity {
                                     break;
                                 case "pacient":
                                     intent = new Intent(getApplicationContext(), MainActivityPacient.class);
-//                                    Pacient pacient = new Pacient();
-//                                    pacient.setNume(persoana.getString("nume"));
-//                                    pacient.setPrenume(persoana.getString("prenume"));
-//                                    pacient.setAdresa(persoana.getString("adresa"));
-//                                    pacient.setData_nastere(simpleDateFormat.parse(persoana.getString("data_nastere")));
-//                                    pacient.setCNP(persoana.getString("CNP"));
-//                                    pacient.setPacientID(persoana.getInt("pacientID"));
-//                                    pacient.setEmail(persoana.getString("email"));
-//                                    pacient.setParola(persoana.getString("parola"));
-                                    //intent.putExtra("pacient", pacient);
+                                    Pacient pacient = new Pacient();
+                                    pacient.setNume(persoana.getString("nume"));
+                                    pacient.setPrenume(persoana.getString("prenume"));
+                                    pacient.setAdresa(persoana.getString("adresa"));
+                                    pacient.setData_nastere(simpleDateFormat.parse(persoana.getString("data_nastere")));
+                                    pacient.setCNP(persoana.getString("CNP"));
+                                    pacient.setPacientID(persoana.getInt("pacientID"));
+                                    pacient.setEmail(persoana.getString("email"));
+                                    pacient.setParola(persoana.getString("parola"));
+                                    intent.putExtra("pacient", pacient);
                                     break;
                                 default:
                                     break;
@@ -146,17 +150,12 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                //GET Request
-                //return RequestHandler.sendGet("https://prodevsblog.com/android_get.php");
-
-                // POST Request
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("email", tvEmail.getText().toString().trim());
                 postDataParams.put("parola", tvParola.getText().toString().trim());
 
                 System.out.println("GOT HERE!");
 
-                // Log.w("db",CallAPI.sendPost("https://scenic-hydra-241121.appspot.com/create", postDataParams));
                 String result = CallAPI.sendPost("https://scenic-hydra-241121.appspot.com/login_angajat", postDataParams);
 
                 System.out.println("I have received a result!");
@@ -174,6 +173,11 @@ public class LoginActivity extends AppCompatActivity {
             super.onPostExecute(s);
         }
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

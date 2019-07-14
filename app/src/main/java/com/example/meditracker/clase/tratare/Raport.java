@@ -1,4 +1,4 @@
-package com.example.meditracker.clase;
+package com.example.meditracker.clase.tratare;
 
 import java.time.LocalDate;
 

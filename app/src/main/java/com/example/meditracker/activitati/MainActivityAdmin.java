@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -16,6 +18,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.meditracker.R;
+import com.example.meditracker.clase.persoane.Administrator;
 import com.example.meditracker.db_connectors.CallAPI;
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,24 +27,30 @@ import org.json.JSONObject;
 public class MainActivityAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    TextView tvEmail, tvNume;
+    Administrator administrator = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                new RequestAsync().execute();
-//
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+
+        tvEmail = headerView.findViewById(R.id.tv_email_utilizator);
+        tvNume = headerView.findViewById(R.id.tv_nume_utilizator);
+
+        administrator = (Administrator) getIntent().getExtras().getSerializable("admin");
+
+
+        tvEmail.setText(administrator.getEmail().trim());
+        tvNume.setText(administrator.getUtilizator().trim());
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -62,19 +71,16 @@ public class MainActivityAdmin extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -92,11 +98,16 @@ public class MainActivityAdmin extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), AdaugareAngajatActivity.class);
             startActivity(intent);
         }  else if (id == R.id.nav_profil) {
+            Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_feedback) {
+            Intent intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
-
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

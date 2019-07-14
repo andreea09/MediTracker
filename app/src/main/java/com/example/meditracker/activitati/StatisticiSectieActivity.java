@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.meditracker.R;
 
-public class StatisticiSectie extends AppCompatActivity {
+public class StatisticiSectieActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

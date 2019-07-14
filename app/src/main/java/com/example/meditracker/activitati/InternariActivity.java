@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.meditracker.R;
+
 public class InternariActivity extends AppCompatActivity {
 
     @Override

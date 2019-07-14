@@ -5,13 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_adaugare_pacienti"
+            android:id="@+id/nav_tratament"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Adaugare Pacienti" />
+            android:title="Vizualizare tratament" />
         <item
-            android:id="@+id/nav_statistici_sectie"
+            android:id="@+id/nav_internari"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Statistici sectii" />
+            android:title="Vizualizare internari" />
     </group>
 
     <item android:title="@string/nav_setari">

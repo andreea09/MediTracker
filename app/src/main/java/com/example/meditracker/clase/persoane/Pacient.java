@@ -1,8 +1,6 @@
-package com.example.meditracker.clase;
+package com.example.meditracker.clase.persoane;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import com.example.meditracker.clase.tratare.Salon;
 import com.example.meditracker.clase.tratare.Diagnostic;
 
 import java.io.Serializable;
@@ -29,6 +27,10 @@ public class Pacient implements Serializable {
     String Parola;
     Date data_internare;
     int zile_internare;
+
+    public Pacient() {
+
+    }
 
     public Pacient(String nume, String prenume, Date data_nastere, int sex, String adresa, String telefon, String email, String CNP, List<Diagnostic> istoric_diagnostice, String dizabilitati, Boolean asigurat, Float costuri_existente, Diagnostic diagnostic, Salon salon, Boolean internat, int pacientID, String parola, Date data_internare, int zile_internare) {
         this.nume = nume;

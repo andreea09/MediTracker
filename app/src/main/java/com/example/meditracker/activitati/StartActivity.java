@@ -173,7 +173,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void startTimer(){
-        timer = new CountDownTimer(totalTime, 5000) {
+        timer = new CountDownTimer(totalTime, 3000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 totalTime = millisUntilFinished;

@@ -1,4 +1,4 @@
-package com.example.meditracker.clase;
+package com.example.meditracker.clase.tratare;
 
 public class Salon {
     String salonID;

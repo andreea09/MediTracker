@@ -1,11 +1,22 @@
 package com.example.meditracker.clase.tratare;
 
+import com.example.meditracker.clase.persoane.Angajat;
+
 import java.util.List;
 
 public class Diagnostic {
     String diagnostic;
     List<Tratament> tratament;
     List<Observatie> observatii;
+    Angajat medic;
+
+    public Angajat getMedic() {
+        return medic;
+    }
+
+    public void setMedic(Angajat medic) {
+        this.medic = medic;
+    }
 
     public String getDiagnostic() {
         return diagnostic;

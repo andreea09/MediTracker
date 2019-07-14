@@ -1,4 +1,4 @@
-package com.example.meditracker.clase;
+package com.example.meditracker.clase.persoane;
 
 import android.os.Parcel;
 import android.os.Parcelable;

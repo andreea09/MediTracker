@@ -1,7 +1,6 @@
-package com.example.meditracker.clase.angajati;
+package com.example.meditracker.clase.persoane;
 
 import com.example.meditracker.clase.Feedback;
-import com.example.meditracker.clase.Pacient;
 
 import java.io.Serializable;
 import java.util.Date;
