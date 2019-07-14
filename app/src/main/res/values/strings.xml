@@ -29,8 +29,8 @@
     <string name="nav_adaugare_angajat">Adaugare angajat</string>
 
     <string-array name="spn_sex">
-        <item>F</item>
         <item>M</item>
+        <item>F</item>
         <item>Altele</item>
     </string-array>
 

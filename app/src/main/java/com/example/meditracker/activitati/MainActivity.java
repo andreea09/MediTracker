@@ -1,18 +1,14 @@
 package com.example.meditracker.activitati;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.RequiresApi;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.meditracker.R;
-import com.example.meditracker.db_connectors.CallAPI;
-import org.json.JSONObject;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import android.view.View;
+import com.example.meditracker.clase.angajati.Angajat;
+
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -25,6 +21,8 @@ import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    TextView tvEmail, tvNume;
+    public Angajat angajat=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +30,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+
+        tvEmail = headerView.findViewById(R.id.tv_email_utilizator);
+        tvNume = headerView.findViewById(R.id.tv_nume_utilizator);
+
+        if (getIntent().getSerializableExtra("medic")!=null) {
+            angajat = (Angajat) getIntent().getSerializableExtra("medic");
+        }
+        else if (getIntent().getSerializableExtra("asistent")!=null) {
+            angajat = (Angajat) getIntent().getSerializableExtra("asistent");
+        }
+
+        tvEmail.setText(angajat.getEmail().toString().trim());
+        tvNume.setText(angajat.getNume().toString().trim() + " " + angajat.getPrenume().toString().trim());
+
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -43,7 +59,7 @@ public class MainActivity extends AppCompatActivity
 //            }
 //        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
