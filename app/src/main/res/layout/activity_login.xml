@@ -43,7 +43,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -55,7 +55,7 @@
                 android:textColorHint="@color/colorWhite" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/et_parola"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -67,7 +67,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/signIn_student_button"
+            android:id="@+id/btn_logare"
             android:background="@color/colorWhite"
             android:layout_width="280dp"
             android:layout_height="27dp"
@@ -85,7 +85,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/signIn_student_checkbox"
+                android:id="@+id/cb_retine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="27dp"
@@ -95,7 +95,7 @@
                 android:textColor="@color/colorWhite" />
 
             <TextView
-                android:id="@+id/singin_student_forgot"
+                android:id="@+id/tv_uitat_parola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="44dp"

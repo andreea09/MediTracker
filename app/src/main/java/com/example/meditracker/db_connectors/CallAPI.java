@@ -46,7 +46,10 @@ public class CallAPI {
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();
             String line;
-            if ((line = in.readLine()) == null) sb.append(line);
+            if ((line = in.readLine()) != null) {
+                //System.out.println("wtffffff"+line);
+                sb.append(line);
+            }
             in.close();
             return sb.toString();
         }
