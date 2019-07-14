@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_adaugare_pacienti"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Adaugare Pacienti" />
+        <item
+            android:id="@+id/nav_statistici_sectie"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Statistici sectii" />
+    </group>
+
+    <item android:title="@string/nav_setari">
+        <menu>
+            <item
+                android:id="@+id/nav_profil"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/nav_profil" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/nav_feedback" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_logout"
+                android:title="@string/nav_logout" />
+        </menu>
+    </item>
+
+</menu>
