@@ -87,10 +87,6 @@ public class MainActivityUPU extends AppCompatActivity
         if (id == R.id.nav_adaugare_pacienti) {
             Intent intent = new Intent(getApplicationContext(), VerificarePacientActivity.class);
             startActivity(intent);
-        }  else if (id == R.id.nav_statistici_sectie) {
-            Intent intent = new Intent(getApplicationContext(), StatisticiSectieActivity.class);
-            startActivity(intent);
-
         }  else if (id == R.id.nav_profil) {
             Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
             startActivity(intent);

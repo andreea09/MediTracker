@@ -8,10 +8,6 @@
             android:id="@+id/nav_adaugare_pacienti"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Adaugare pacienti" />
-        <item
-            android:id="@+id/nav_statistici_sectie"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Statistici sectii" />
     </group>
 
     <item android:title="@string/nav_setari">

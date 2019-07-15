@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     List<Integer> listaID = new ArrayList<>();
     int ID;
     List<String> descriereDiagnostice = new ArrayList<>();
+    List<Integer> diagnosticeID = new ArrayList<>();
 
     @Override
     protected void onResume() {
@@ -118,12 +119,14 @@ public class MainActivity extends AppCompatActivity
                     for (int k = 0; k < listaID.size(); k++) {
                         if (listaID.get(k) == diagnostic.getInt("pacientID")) {
                             descriereDiagnostice.set(k, diagnostic.getString("descriere"));
+                            diagnosticeID.set(k, diagnostic.getInt("diagnosticID"));
                             gasit = true;
                         }
                     }
                     if (!gasit) {
                         listaID.add(diagnostic.getInt("pacientID"));
                         descriereDiagnostice.add(diagnostic.getString("descriere"));
+                        diagnosticeID.add(diagnostic.getInt("diagnosticID"));
                     }
                 }
 
@@ -191,6 +194,8 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(int position, View v) {
                 Intent intent = new Intent(getApplicationContext(), ProfilPacientActivity.class);
                 intent.putExtra("cnp", pacienti.get(position).getCNP());
+                intent.putExtra("diagnostic", descriereDiagnostice.get(position));
+                intent.putExtra("diagnosticID", diagnosticeID.get(position));
                 startActivity(intent);
             }
         });
@@ -237,16 +242,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_pacienti) {
-            Intent intent = new Intent(getApplicationContext(), PacientiActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_sectie) {
-            Intent intent = new Intent(getApplicationContext(), StatisticiSectieActivity.class);
-            startActivity(intent);
-
-
-        } else if (id == R.id.nav_profil) {
+        if (id == R.id.nav_profil) {
             Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
             startActivity(intent);
 

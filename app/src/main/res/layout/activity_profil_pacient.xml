@@ -8,238 +8,224 @@
     android:orientation="vertical"
     tools:context=".activitati.ProfilPacientActivity">
 
-    <TextView
-        android:id="@+id/tv_adaugare_pacient"
-        android:layout_width="416dp"
-        android:layout_height="38dp"
-        android:layout_marginBottom="693dp"
-        android:text="Profil pacient"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_conversion_absoluteHeight="280dp"
-        tools:layout_conversion_absoluteWidth="190dp" />
-
-    <LinearLayout
-        android:layout_width="196dp"
-        android:layout_height="584dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="198dp"
-        android:layout_marginRight="198dp"
-        android:layout_marginBottom="81dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="327dp"
+        android:layout_height="450dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/et_nume_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nume"
-            android:inputType="textPersonName"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_prenume_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Prenume"
-            android:inputType="textPersonName"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_dataN_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Data nasterii"
-            android:inputType="date"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_sex_pacient_profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Sex"
-            android:inputType="textPersonName"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_adresa_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Adresa"
-            android:inputType="textPersonName"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_nrTel_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Numar telefon"
-            android:inputType="number"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_adresaE_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Adresa e-mail"
-            android:inputType="textEmailAddress"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_cnp_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="CNP"
-            android:inputType="number"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/cb_asigurat_pacient"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_profil_pacient"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Asigurat"
-                tools:layout_conversion_absoluteHeight="11dp"
-                tools:layout_conversion_absoluteWidth="88dp" />
+                android:text="Profil pacient"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp"
+                tools:layout_conversion_absoluteHeight="280dp"
+                tools:layout_conversion_absoluteWidth="190dp" />
 
-            <CheckBox
-                android:id="@+id/cb_dizabilitati_pacient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dizabilitati"
-                tools:layout_conversion_absoluteHeight="11dp"
-                tools:layout_conversion_absoluteWidth="347dp" />
+            <LinearLayout
+                android:layout_width="327dp"
+                android:layout_height="406dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_nume_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nume"
+                    android:inputType="textPersonName"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_prenume_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Prenume"
+                    android:inputType="textPersonName"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_dataN_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Data nasterii"
+                    android:inputType="date"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_sex_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Sex"
+                    android:inputType="textPersonName"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_adresa_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Adresa"
+                    android:inputType="textPersonName"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_nrTel_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Numar telefon"
+                    android:inputType="number"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_adresaE_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Adresa e-mail"
+                    android:inputType="textEmailAddress"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_cnp_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CNP"
+                    android:inputType="number"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb_asigurat_pacient_profil"
+                        android:layout_width="186dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Asigurat"
+                        tools:layout_conversion_absoluteHeight="11dp"
+                        tools:layout_conversion_absoluteWidth="88dp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_dizabilitati_pacient_profil"
+                        android:layout_width="181dp"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:text="Dizabilitati"
+                        tools:layout_conversion_absoluteHeight="11dp"
+                        tools:layout_conversion_absoluteWidth="347dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="327dp"
+                android:layout_height="530dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_pat_pacienti_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Numar pat"
+                    android:inputType="number"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_salon_pacient_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Numar salon"
+                    android:inputType="number"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <EditText
+                    android:id="@+id/et_diagnostic_profil_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Diagnostic"
+                    android:inputType="textPersonName"
+                    tools:layout_conversion_absoluteHeight="34dp"
+                    tools:layout_conversion_absoluteWidth="190dp" />
+
+                <TextView
+                    android:id="@+id/tv_Tratamente_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tratamente"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="30px" />
+
+                <ListView
+                    android:id="@+id/lv_tratamente_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="166dp">
+
+                </ListView>
+
+                <TextView
+                    android:id="@+id/Observatii_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Observatii"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="30px" />
+
+                <ListView
+                    android:id="@+id/lv_observatii_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="126dp" />
+
+                <Button
+                    android:id="@+id/btn_istoric_profil"
+                    android:layout_width="165dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30px"
+                    android:background="@drawable/bg_button"
+                    android:text="VIzualizare istoric"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/et_salon_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Numar salon"
-            android:inputType="number"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_pat_pacienti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Numar pat"
-            android:inputType="number"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_dataINternare_profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Data internare"
-            android:inputType="date"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-        <EditText
-            android:id="@+id/et_diagnostic_profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Diagnostic"
-            android:inputType="textPersonName"
-            tools:layout_conversion_absoluteHeight="34dp"
-            tools:layout_conversion_absoluteWidth="190dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="187dp"
-        android:layout_height="591dp"
-        android:layout_marginStart="218dp"
-        android:layout_marginLeft="218dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="74dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tv_Tratamente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tratamente"
-            android:textSize="50px"/>
-
-        <ListView
-            android:id="@+id/lv_tratamente_profil"
-            android:layout_width="match_parent"
-            android:layout_height="181dp" />
-
-        <TextView
-            android:id="@+id/Observatii"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Observatii"
-            android:textSize="50px"/>
-
-        <ListView
-            android:id="@+id/lv_observatii_profil"
-            android:layout_width="match_parent"
-            android:layout_height="233dp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_istoric"
-        android:layout_width="165dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginLeft="122dp"
-        android:layout_marginTop="667dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginRight="123dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_button"
-        android:text="VIzualizare istoric"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

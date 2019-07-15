@@ -7,142 +7,217 @@
     android:orientation="vertical"
     tools:context=".activitati.AdaugarePacientActivity">
 
-    <TextView
-        android:id="@+id/tv_adaugare_pacient"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_weight="1"
-        android:text="Adaugare pacient"
-        android:textSize="30dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <EditText
-        android:id="@+id/et_nume_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Nume"
-        android:inputType="textPersonName" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_prenume_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Prenume"
-        android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/tv_adaugare_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:text="Adaugare pacient"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryLight"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_dataN_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Data nasterii"
-        android:inputType="date" />
+            <EditText
+                android:id="@+id/et_nume_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Nume"
+                android:inputType="textPersonName"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <Spinner
-        android:id="@+id/sp_sex_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+            <EditText
+                android:id="@+id/et_prenume_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Prenume"
+                android:inputType="textPersonName"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_adresa_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Adresa"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/et_dataN_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Data nasterii"
+                android:inputType="date"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_nrTel_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Numar telefon"
-        android:inputType="number" />
+            <Spinner
+                android:id="@+id/sp_sex_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_adresaE_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Adresa e-mail"
-        android:inputType="textEmailAddress" />
+            <EditText
+                android:id="@+id/et_adresa_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Adresa"
+                android:inputType="textPersonName"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_cnp_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="CNP"
-        android:inputType="number" />
+            <EditText
+                android:id="@+id/et_nrTel_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Numar telefon"
+                android:inputType="number"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <LinearLayout
-        android:layout_width="435dp"
-        android:layout_height="23dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_adresaE_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Adresa e-mail"
+                android:inputType="textEmailAddress"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-        <CheckBox
-            android:id="@+id/cb_asigurat_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Asigurat"
-            android:buttonTint="@color/colorPrimaryDark"/>
+            <EditText
+                android:id="@+id/et_cnp_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="CNP"
+                android:inputType="number"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-        <CheckBox
-            android:id="@+id/cb_dizabilitati_pacient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dizabilitati"
-            android:buttonTint="@color/colorPrimaryDark"/>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="435dp"
+                android:layout_height="23dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/et_salon_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Numar salon"
-        android:inputType="number" />
+                <CheckBox
+                    android:id="@+id/cb_asigurat_pacient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:text="Asigurat"
+                    android:layout_marginStart="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginEnd="20px"
+                    android:layout_marginLeft="20px"/>
 
-    <EditText
-        android:id="@+id/et_pat_pacienti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Numar pat"
-        android:inputType="number" />
+                <CheckBox
+                    android:id="@+id/cb_dizabilitati_pacient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:text="Dizabilitati"
+                    android:layout_marginStart="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginEnd="20px"
+                    android:layout_marginLeft="20px"/>
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_parola_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Parola cont pacient"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/et_salon_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Numar salon"
+                android:inputType="number"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
 
-    <Button
-        android:id="@+id/btn_creare_pacient"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/bg_button"
-        android:text="Creare cont pacient"
-        android:textColor="@color/colorWhite"
-        android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/et_pat_pacienti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Numar pat"
+                android:inputType="number"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
+
+            <EditText
+                android:id="@+id/et_parola_pacient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Parola cont pacient"
+                android:inputType="textPersonName"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
+
+            <Button
+                android:id="@+id/btn_creare_pacient"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button"
+                android:text="Creare cont pacient"
+                android:textColor="@color/colorWhite"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

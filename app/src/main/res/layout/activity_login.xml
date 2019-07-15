@@ -52,7 +52,11 @@
                 android:inputType="textEmailAddress"
                 android:singleLine="false"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite" />
+                android:textColorHint="@color/colorWhite"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px" />
 
             <EditText
                 android:id="@+id/et_parola"
@@ -63,7 +67,11 @@
                 android:hint="Parola"
                 android:inputType="textPassword"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite" />
+                android:textColorHint="@color/colorWhite"
+                android:layout_marginStart="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginEnd="20px"
+                android:layout_marginLeft="20px"/>
         </LinearLayout>
 
         <Button
@@ -91,7 +99,7 @@
                 android:layout_marginLeft="27dp"
                 android:layout_marginTop="5dp"
                 android:buttonTint="@color/colorWhite"
-                android:text="Retine utilizatorul"
+                android:text="Retineti utilizatorul"
                 android:textColor="@color/colorWhite" />
 
             <TextView
@@ -100,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="44dp"
                 android:layout_marginTop="5dp"
-                android:text="Ai uitat parola?"
+                android:text="Ati uitat parola?"
                 android:textColor="@color/colorWhite"
                 android:textColorLink="@color/colorPrimaryLight"
                 android:textSize="13dp"
@@ -127,7 +135,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bucuresti, 2019"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
             android:textSize="15dp" />
 
 
@@ -137,6 +146,8 @@
         android:id="@+id/line"
         android:layout_width="345dp"
         android:layout_height="1dp"
+        android:textColor="@color/colorPrimaryLight"
+        android:textStyle="bold"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="567dp"
@@ -162,8 +173,9 @@
         android:layout_marginRight="47dp"
         android:layout_marginBottom="562dp"
         android:text="Bine ati venit!"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryLight"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
