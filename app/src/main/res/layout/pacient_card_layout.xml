@@ -45,7 +45,7 @@
                 android:id="@+id/btn_adaugare_diagnostic_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Adaugare diagnostic"
+                android:text="Adaugare tratament"
                 android:background="@drawable/bg_button"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="10px"

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meditracker.R;
+import com.example.meditracker.clase.Constante;
 import com.example.meditracker.clase.persoane.Angajat;
 import com.example.meditracker.db_connectors.CallAPI;
 
@@ -25,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -37,6 +39,7 @@ public class AdaugareDiagnosticActivity extends AppCompatActivity {
     String sectie;
     ArrayList<Angajat> medici = null;
     ArrayList<String> numeMedici = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

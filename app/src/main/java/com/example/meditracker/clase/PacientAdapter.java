@@ -101,6 +101,7 @@ public class PacientAdapter extends RecyclerView.Adapter<PacientAdapter.ViewHold
                 Intent intent = new Intent(context, AdaugareObservatiiActivity.class);
                 intent.putExtra("cnp", p.getCNP());
                 intent.putExtra("angajatID",MainActivity.angajat.getAngajatID());
+                intent.putExtra("sectie", MainActivity.angajat.getSectie());
 
                 String s = null;
                 RequestAsync req = new RequestAsync();

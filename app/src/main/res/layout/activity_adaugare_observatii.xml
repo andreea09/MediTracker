@@ -6,4 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".activitati.AdaugareObservatiiActivity">
 
+    <LinearLayout
+        android:layout_width="405dp"
+        android:layout_height="340dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="219dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_data_observatie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Data observatiei"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/et_ora_observatie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ora observatiei"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_observatie"
+            android:layout_width="match_parent"
+            android:layout_height="279dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Observatie"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_adaugare_observatie"
+        android:layout_width="354dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="643dp"
+        android:text="Adaugare observatie"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="100px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_adaugare_observatie"
+        android:layout_width="288dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="546dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginBottom="141dp"
+        android:background="@drawable/bg_button"
+        android:text="Adaugare observatie"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

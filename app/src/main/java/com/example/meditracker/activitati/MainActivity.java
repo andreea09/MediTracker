@@ -1,13 +1,18 @@
 package com.example.meditracker.activitati;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.meditracker.R;
+import com.example.meditracker.clase.Constante;
 import com.example.meditracker.clase.PacientAdapter;
 import com.example.meditracker.clase.persoane.Angajat;
 
@@ -18,6 +23,7 @@ import android.view.MenuItem;
 
 import com.example.meditracker.clase.persoane.Pacient;
 import com.example.meditracker.clase.tratare.Diagnostic;
+import com.example.meditracker.db_connectors.CallAPI;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -27,8 +33,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,10 +49,15 @@ public class MainActivity extends AppCompatActivity
     public static Angajat angajat=null;
     RecyclerView recyclerView;
     PacientAdapter pacientAdapter;
+    List<Pacient> pacienti;
+    SimpleDateFormat format = new SimpleDateFormat(Constante.SIMPLE_DATE_FORMAT);
+    List<Integer> listaID = new ArrayList<>();
+    int ID;
+    List<String> descriereDiagnostice = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onResume() {
+        super.onResume();
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,24 +69,120 @@ public class MainActivity extends AppCompatActivity
         tvEmail = headerView.findViewById(R.id.tv_email_utilizator);
         tvNume = headerView.findViewById(R.id.tv_nume_utilizator);
 
+
+        if (getIntent().getSerializableExtra("medic")!=null) {
+            angajat = (Angajat) getIntent().getSerializableExtra("medic");
+        }
+        else if (getIntent().getSerializableExtra("asistent")!=null) {
+            angajat = (Angajat) getIntent().getSerializableExtra("asistent");
+        }
+
+        pacienti = new ArrayList<>();
+        System.out.println("Lista este" + pacienti.toString());
+
+        tvEmail.setText(angajat.getEmail().trim());
+        tvNume.setText(angajat.getNume().trim() + " " + angajat.getPrenume().trim());
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        String s = null;
+        RequestAsync req = new RequestAsync();
+
+        try {
+            s = req.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(s);
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(s);
+
+            try {
+                JSONArray jsonArray = jsonObject.getJSONArray("result");
+
+                for(int i=0; i < jsonArray.length();i++) {
+                    JSONObject diagnostic = jsonArray.getJSONObject(i);
+
+                    boolean gasit = false;
+
+                    for (int k = 0; k < listaID.size(); k++) {
+                        if (listaID.get(k) == diagnostic.getInt("pacientID")) {
+                            descriereDiagnostice.set(k, diagnostic.getString("descriere"));
+                            gasit = true;
+                        }
+                    }
+                    if (!gasit) {
+                        listaID.add(diagnostic.getInt("pacientID"));
+                        descriereDiagnostice.add(diagnostic.getString("descriere"));
+                    }
+                }
+
+                int numar=0;
+
+                System.out.println("Lista ids" + listaID.toString());
+
+                for (Integer id : listaID) {
+                    ID = id;
+
+                    String s1 = null;
+                    PacietAsync req1 = new PacietAsync();
+
+                    try {
+                        s1 = req1.execute().get();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(s1);
+
+                    try {
+
+                        JSONObject jsonObject1 = new JSONObject(s1);
+
+                        try {
+                            JSONArray jsonArray1 = jsonObject1.getJSONArray("result");
+
+                            for (int j = 0; j < jsonArray1.length(); j++) {
+                                JSONObject persoana = jsonArray1.getJSONObject(j);
+
+                                JSONObject asigurat = persoana.getJSONObject("asigurat");
+                                JSONObject internat = persoana.getJSONObject("internat");
+
+                                Pacient p = new Pacient(persoana.getString("nume"), persoana.getString("prenume"), format.parse(persoana.getString("data_nastere")),
+                                        persoana.getInt("sex"), persoana.getString("adresa"), persoana.getString("telefon"), persoana.getString("email"),
+                                        persoana.getString("CNP"), null, String.valueOf(persoana.getInt("dizabilitati")), asigurat.getString("data").equals("[1]") ? true : false, Float.valueOf(persoana.getInt("costuri_existente")),
+                                        new Diagnostic(descriereDiagnostice.get(numar)), null, internat.getString("data").equals("[1]") ? true : false, persoana.getInt("pacientID"), persoana.getString("parola"), null, 0);
+                                pacienti.add(p);
+                            }
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    numar++;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         recyclerView = findViewById(R.id.recycler_pacienti_main);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        final List<Pacient> pacienti = new ArrayList<>();
-        Pacient p = new Pacient();
-        p.setNume("Popescu");
-        p.setPrenume("Ionel");
-        p.setDiagnostic(new Diagnostic());
-        p.getDiagnostic().setDiagnostic("Cancer");
-        pacienti.add(p);
-        Pacient p1 = new Pacient();
-        p1.setNume("Ionescu");
-        p1.setPrenume("Popel");
-        p1.setCNP("2000925123456");
-        p1.setDiagnostic(new Diagnostic());
-        p1.getDiagnostic().setDiagnostic("Alzheimer");
-        pacienti.add(p1);
 
 
         pacientAdapter = new PacientAdapter(pacienti, MainActivity.this);
@@ -84,23 +198,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        if (getIntent().getSerializableExtra("medic")!=null) {
-            angajat = (Angajat) getIntent().getSerializableExtra("medic");
-        }
-        else if (getIntent().getSerializableExtra("asistent")!=null) {
-            angajat = (Angajat) getIntent().getSerializableExtra("asistent");
-        }
-
-        tvEmail.setText(angajat.getEmail().trim());
-        tvNume.setText(angajat.getNume().trim() + " " + angajat.getPrenume().trim());
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
 
@@ -164,5 +261,73 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public class RequestAsync extends AsyncTask<String, String, String> {
+        @SuppressLint("WrongThread")
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                JSONObject postDataParams = new JSONObject();
+                postDataParams.put("angajatID", angajat.getAngajatID());
+
+                System.out.println("GOT HERE!");
+
+                String result = CallAPI.sendPost("https://scenic-hydra-241121.appspot.com/angajat/diagnostic", postDataParams);
+
+                System.out.println("I have received a result!");
+                System.out.println(result);
+
+                return result;
+
+            } catch (Exception e) {
+                return "Exception: " + e.getMessage();
+            }
+
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
+
+    }
+
+    public class PacietAsync extends AsyncTask<String, String, String> {
+        @SuppressLint("WrongThread")
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                JSONObject postDataParams = new JSONObject();
+                postDataParams.put("pacientID", ID);
+
+                System.out.println("GOT HERE!");
+
+                String result = CallAPI.sendPost("https://scenic-hydra-241121.appspot.com/pacient/cautareID", postDataParams);
+
+                System.out.println("I have received a result!");
+                System.out.println(result);
+
+                return result;
+
+            } catch (Exception e) {
+                return "Exception: " + e.getMessage();
+            }
+
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+        }
+
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 }

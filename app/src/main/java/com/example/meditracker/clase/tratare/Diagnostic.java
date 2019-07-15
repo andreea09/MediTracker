@@ -10,6 +10,10 @@ public class Diagnostic {
     List<Observatie> observatii;
     Angajat medic;
 
+    public Diagnostic(String diagnostic) {
+        this.diagnostic = diagnostic;
+    }
+
     public Angajat getMedic() {
         return medic;
     }
