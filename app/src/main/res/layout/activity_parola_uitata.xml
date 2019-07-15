@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activitati.FeedbackActivity">
+    tools:context=".activitati.ParolaUitataActivity">
 
 
     <Button
-        android:id="@+id/btn_trimite_feedback"
+        android:id="@+id/btn_trimite_parola"
         android:layout_width="136dp"
         android:layout_height="59dp"
         android:layout_marginStart="137dp"
@@ -18,7 +18,7 @@
         android:layout_marginRight="138dp"
         android:layout_marginBottom="179dp"
         android:background="@drawable/bg_button"
-        android:text="Trimite raport"
+        android:text="Trimite cererea"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_e-mail_feedback"
+        android:id="@+id/et_e-mail_parola"
         android:layout_width="304dp"
         android:layout_height="41dp"
         android:layout_marginStart="55dp"
@@ -44,16 +44,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_feedback"
-        android:layout_width="301dp"
-        android:layout_height="66dp"
+        android:id="@+id/tv_parola_uitata"
+        android:layout_width="302dp"
+        android:layout_height="110dp"
         android:layout_marginStart="55dp"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="132dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginBottom="533dp"
-        android:text="Feedback aplicatie"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginBottom="489dp"
+        android:text="Cerere resetare parola"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="15pt"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_mesaj_feecback"
+        android:id="@+id/et_mesaj_parola"
         android:layout_width="300dp"
         android:layout_height="123dp"
         android:layout_marginStart="55dp"

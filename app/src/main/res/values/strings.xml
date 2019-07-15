@@ -44,23 +44,16 @@
         <item>Internari</item>
         <item>Analize</item>
         <item>Cardiologie</item>
-        <item>Chirurgie Generala</item>
+        <item>Chirurgie</item>
         <item>Dermatologie</item>
         <item>Endocrionologie</item>
         <item>Ginecologie</item>
         <item>Interne</item>
-        <item>Imagistica</item>
-        <item>Infectioase</item>
         <item>Neurologie</item>
-        <item>Neonatologie</item>
         <item>Ortopedie</item>
-        <item>Oftalmologie</item>
         <item>Oncologie</item>
         <item>Pediatrie</item>
-        <item>Pneumologie</item>
-        <item>Psihiatrie</item>
         <item>Radiologie</item>
-        <item>Recuperare</item>
 
 
     </string-array>

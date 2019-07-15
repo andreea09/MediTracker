@@ -72,7 +72,8 @@ public class MainActivityUPU extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(getApplicationContext(), DespreActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

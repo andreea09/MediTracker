@@ -97,14 +97,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Asigurat" />
+            android:text="Asigurat"
+            android:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/cb_dizabilitati_pacient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dizabilitati" />
+            android:text="Dizabilitati"
+            android:buttonTint="@color/colorPrimaryDark"/>
     </LinearLayout>
 
     <EditText
@@ -136,10 +138,11 @@
 
     <Button
         android:id="@+id/btn_creare_pacient"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/bg_button"
         android:text="Creare cont pacient"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorWhite"/>
+        android:textColor="@color/colorWhite"
+        android:layout_gravity="center"/>
 </LinearLayout>

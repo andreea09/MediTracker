@@ -4,63 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight"
+
     tools:context=".activitati.VerificarePacientActivity">
 
-    <TextView
-        android:id="@+id/tv_verificare_pacient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="121dp"
-        android:layout_marginBottom="496dp"
-        android:text="Verificare CNP pacient"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_verificare_pacient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="582dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginBottom="101dp"
-        android:background="@drawable/verificare_button"
-        android:text="Verificare"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="351dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="338dp"
+    <LinearLayout
+        android:layout_width="348dp"
+        android:layout_height="438dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="138dp"
+        android:background="@drawable/background_login"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_CNP_verificare_pacient"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_verificare_pacient"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:height="30dp"
-            android:background="@drawable/background_verificare"
-            android:hint="Cod numeric personal" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Verificare CNP pacient"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="45dp" />
+
+        <EditText
+            android:id="@+id/et_CNP_verificare_pacient"
+            android:layout_width="331dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="200px"
+            android:background="@drawable/verificare_button"
+            android:ems="10"
+            android:hint="Cod numeric personal"
+            android:inputType="number" />
+
+        <LinearLayout
+            android:layout_width="358dp"
+            android:layout_height="120dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <Button
+            android:id="@+id/btn_verificare_pacient"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/verificare_button"
+            android:text="Verificare pacient" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,6 +33,16 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogare;
     TextView tvEmail, tvParola, tvUitatParola;
     CheckBox cbRetine;
+    static String email = "";
+    static String parola = "";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tvEmail.setText(email);
+        tvParola.setText(parola);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +55,18 @@ public class LoginActivity extends AppCompatActivity {
         tvUitatParola = findViewById(R.id.tv_uitat_parola);
         cbRetine = findViewById(R.id.cb_retine);
 
+        tvEmail.setText(email);
+        tvParola.setText(parola);
+
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(Constante.SIMPLE_DATE_FORMAT);
+
+        tvUitatParola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ParolaUitataActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogare.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -61,6 +82,16 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 System.out.println(s);
+
+                if (cbRetine.isChecked())
+                {
+                    email = tvEmail.getText().toString();
+                    parola = tvParola.getText().toString();
+                }
+                else {
+                    email = "";
+                    parola = "";
+                }
 
                 try {
 
@@ -141,6 +172,8 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+
+
         });
     }
 

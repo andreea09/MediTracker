@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitati.ProfilPacientActivity"></activity>
+        <activity android:name=".activitati.DespreActivity"></activity>
+        <activity android:name=".activitati.ParolaUitataActivity" />
+        <activity android:name=".activitati.ProfilPacientActivity" />
         <activity android:name=".activitati.AdaugareObservatiiActivity" />
         <activity android:name=".activitati.AdaugareDiagnosticActivity" />
         <activity android:name=".activitati.VerificarePacientActivity" />
