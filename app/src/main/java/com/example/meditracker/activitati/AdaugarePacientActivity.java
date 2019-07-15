@@ -4,12 +4,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +21,13 @@ import com.example.meditracker.db_connectors.CallAPI;
 
 import org.json.JSONObject;
 
+import java.util.concurrent.ExecutionException;
+
 public class AdaugarePacientActivity extends AppCompatActivity {
     Button btnAdaugare;
-    TextView tvNume, tvPrenume, tvDataNasterii, tvAdresa, tvNumarTelefon, tvAdresaEmail, tvCNP, tvParola, tvDiagnostic, tvSalon;
-    Spinner spnSex, spnMedic, spnSectie;
+    TextView tvNume, tvPrenume, tvDataNasterii, tvAdresa, tvNumarTelefon, tvAdresaEmail, tvCNP, tvParola, tvDiagnostic, tvSalon, tvPat;
+    Spinner spnSex;
+    CheckBox cbAsigurat, cbDizabilitati;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +43,33 @@ public class AdaugarePacientActivity extends AppCompatActivity {
         tvAdresaEmail = findViewById(R.id.et_adresaE_pacient);
         tvCNP = findViewById(R.id.et_cnp_pacient);
         tvParola = findViewById(R.id.et_parola_pacient);
-        tvDiagnostic = findViewById(R.id.et_diagnostic_pacient);
         tvSalon = findViewById(R.id.et_salon_pacient);
-        spnSex = findViewById(R.id.sp_sex_angajat);
-        spnMedic = findViewById(R.id.sp_medic_pacient);
-        spnSectie = findViewById(R.id.sp_sectie_angajat);
+        tvPat = findViewById(R.id.et_pat_pacienti);
+        spnSex = findViewById(R.id.sp_sex_pacient);
+        cbAsigurat = findViewById(R.id.cb_asigurat_pacient);
+        cbDizabilitati = findViewById(R.id.cb_dizabilitati_pacient);
+
 
         ArrayAdapter<CharSequence> adapterSex = ArrayAdapter.createFromResource(getApplicationContext(), R.array.spn_sex, android.R.layout.simple_spinner_dropdown_item);
         spnSex.setAdapter(adapterSex);
-        ArrayAdapter<CharSequence> adapterSectie = ArrayAdapter.createFromResource(getApplicationContext(), R.array.spn_sectie, android.R.layout.simple_spinner_dropdown_item);
-        spnSectie.setAdapter(adapterSectie);
+
 
         btnAdaugare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new RequestAsync().execute();
+                String s = null;
+                RequestAsync req = new RequestAsync();
+                try {
+                    s = req.execute().get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(s);
+                Intent intent = new Intent(getApplicationContext(), AdaugareDiagnosticActivity.class);
+                intent.putExtra("cnp",tvCNP.getText().toString());
+                startActivity(intent);
             }
         });
 
@@ -76,8 +93,13 @@ public class AdaugarePacientActivity extends AppCompatActivity {
                 postDataParams.put("adresa", tvAdresa.getText().toString().trim());
                 postDataParams.put("telefon", tvNumarTelefon.getText().toString().trim());
                 postDataParams.put("email", tvAdresaEmail.getText().toString().trim());
-                postDataParams.put("cnp", tvCNP.getText().toString().trim());
-                postDataParams.put("sectie", spnSectie.getSelectedItem().toString().trim());
+                postDataParams.put("CNP", tvCNP.getText().toString().trim());
+                postDataParams.put("pat", tvPat.getText().toString().trim());
+                postDataParams.put("salon", tvSalon.getText().toString().trim());
+                postDataParams.put("internat", 1);
+                postDataParams.put("costuri_existente", 0);
+                postDataParams.put("dizabilitati", cbDizabilitati.isChecked()? 1:0);
+                postDataParams.put("asigurat", cbAsigurat.isChecked()? 1:0);
                 postDataParams.put("parola", tvParola.getText().toString().trim());
 
                 System.out.println("GOT HERE!");
@@ -94,7 +116,7 @@ public class AdaugarePacientActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             if (s != null) {
-                Toast.makeText(getApplicationContext(), "Angajatul a fost adaugat!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Pacientul a fost adaugat!", Toast.LENGTH_LONG).show();
             }
         }
 

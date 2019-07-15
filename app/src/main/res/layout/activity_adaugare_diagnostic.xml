@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lv_adaugare_diagnostic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activitati.AdaugareDiagnosticActivity">
+
+    <TextView
+        android:id="@+id/tv_adaugare_diagnostic"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:text="Adaugare diagnostic"
+        android:textSize="20pt"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_descriere_diagnostic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Descriere diagnostic" />
+
+    <Spinner
+        android:id="@+id/spn_sectie_diagnostic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/spn_medic_diagnostic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et_data_internare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Data internare"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/et_numar_internare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Numar zile"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_indicatii_tratament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Indicatii tratament" />
+
+    <EditText
+        android:id="@+id/et_data_tratament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Data incepere tratament"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/et_durata_tratament"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Durata zile tratament"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn_adauagare_diagnostic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adaugare diagnostic" />
+</LinearLayout>

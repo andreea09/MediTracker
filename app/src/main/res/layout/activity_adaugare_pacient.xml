@@ -108,27 +108,6 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/et_diagnostic_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Diagnostic"
-        android:inputType="textPersonName" />
-
-    <Spinner
-        android:id="@+id/sp_sectie_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <Spinner
-        android:id="@+id/sp_medic_pacient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <EditText
         android:id="@+id/et_salon_pacient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

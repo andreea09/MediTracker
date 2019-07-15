@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,7 +58,7 @@ public class AdaugareAngajatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new RequestAsync().execute();
-
+                finish();
             }
         });
     }

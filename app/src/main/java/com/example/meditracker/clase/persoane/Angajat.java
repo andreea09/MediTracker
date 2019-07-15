@@ -24,6 +24,12 @@ public class Angajat implements Serializable {
     public String Parola;
     public List<Pacient> pacienti_activi;
 
+    public Angajat(String nume, String prenume, int angajatID) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.angajatID = angajatID;
+    }
+
     public Angajat(String nume, String prenume, Date data_nastere, int sex, String adresa, String telefon, String email, String CNP, int angajatID, String sectie, Date data_angajare, int salariu, String contract_angajare, String pozitie, String parola, List<Pacient> pacienti_activi) {
         this.nume = nume;
         this.prenume = prenume;

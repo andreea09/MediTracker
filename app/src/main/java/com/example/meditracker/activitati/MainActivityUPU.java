@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +14,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.meditracker.R;
+import com.example.meditracker.clase.persoane.Angajat;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivityUPU extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    TextView tvEmail, tvNume;
+    Angajat angajat = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,17 @@ public class MainActivityUPU extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+
+        tvEmail = headerView.findViewById(R.id.tv_email_utilizator);
+        tvNume = headerView.findViewById(R.id.tv_nume_utilizator);
+
+        if (getIntent().getSerializableExtra("upu")!=null) {
+            angajat = (Angajat) getIntent().getSerializableExtra("upu");
+        }
+
+        tvEmail.setText(angajat.getEmail().trim());
+        tvNume.setText(angajat.getNume().trim() + " " + angajat.getPrenume().trim());
     }
 
 
@@ -68,7 +84,7 @@ public class MainActivityUPU extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_adaugare_pacienti) {
-            Intent intent = new Intent(getApplicationContext(), AdaugarePacientActivity.class);
+            Intent intent = new Intent(getApplicationContext(), VerificarePacientActivity.class);
             startActivity(intent);
         }  else if (id == R.id.nav_statistici_sectie) {
             Intent intent = new Intent(getApplicationContext(), StatisticiSectieActivity.class);
